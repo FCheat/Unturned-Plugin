@@ -21,6 +21,8 @@ No license or any restriction has been placed on you, this relies on your own ab
 
 If you'd like to add more function hooks you can use the Visual Studio reference explorer to view through the Assembly-CSharp.dll in your Unturned_Data->Managed folder and see all the functions and classes that *apparently* we're too dumb to find for ourselves. Good luck out there :^)
 
+Check out the [Wiki](https://github.com/FCheat/Unturned-Plugin/wiki) for tutorials like Adding your own event hooks for things like when a player joins.
+
 # Images
 ![Plugin Load](https://i.imgur.com/LIdTx6f.png)
 
