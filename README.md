@@ -19,6 +19,8 @@ An example on how to make your OWN plugin.
 This is a PROOF OF CONCEPT project.
 No license or any restriction has been placed on you, this relies on your own ability and it's your freedom on how you work it.
 
+If you'd like to add more function hooks you can use the Visual Studio reference explorer to view through the Assembly-CSharp.dll in your Unturned_Data->Managed folder and see all the functions and classes that *apparently* we're too dumb to find for ourselves. Good luck out there :^)
+
 # Images
 ![Plugin Load](https://i.imgur.com/LIdTx6f.png)
 
