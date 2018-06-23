@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Plugin
 {
@@ -50,6 +50,21 @@ namespace Plugin
                                  }
                              }
                          };
+
+            //Whenever someone is connecting, do this stuff.
+            //Full tutorial on how I got this added, and how to work for yourself.
+            SDG.Unturned.Provider.onServerConnected +=
+                delegate (Steamworks.CSteamID steamID)
+                {
+                    Console.WriteLine(steamID.m_SteamID.ToString() + " is joining.");
+                };
+
+            //Whenever someone has left *Or are they leaving?*
+            SDG.Unturned.Provider.onServerDisconnected +=
+                delegate (Steamworks.CSteamID steamID)
+                {
+                    Console.WriteLine(steamID.m_SteamID.ToString() + " has left the building.");
+                };
 
             Console.WriteLine("------------------");
         }
