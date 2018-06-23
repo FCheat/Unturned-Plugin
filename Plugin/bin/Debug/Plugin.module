@@ -1,0 +1,22 @@
+{
+	"Name": "Plugin",
+	"Version": "0.0.0.0",
+	"Assemblies":
+	[
+		{
+			"Path": "/Plugin.dll",
+			"Role": "Server"
+		}
+	],
+	"Dependencies":
+	[
+		{
+			"Name": "Framework",
+			"Version": "0.0.0.0"
+		},
+		{
+			"Name": "Unturned",
+			"Version": "0.0.0.0"
+		}
+	]
+}
