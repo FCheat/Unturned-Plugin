@@ -50,6 +50,11 @@ namespace Plugin
                             case "sAirdrop":
                                 SDG.Unturned.LevelManager.airdropFrequency = 0;
                                 break;
+                            case "sMessage":
+                                Player.player.channel.send("askMessage", SDG.Unturned.ESteamCall.OWNER,
+                                    SDG.Unturned.ESteamPacket.UPDATE_UNRELIABLE_BUFFER,
+                                    new object[] { (byte)89 }); //89 being the message "Busy"
+                                break;
                         }
                     }
                 };
@@ -70,6 +75,8 @@ namespace Plugin
                 };
 
             SDG.Unturned.SteamChannel.onTriggerSend += HandleTriggerSend;
+            
+            UnityEngine.Debug.logger.Log(UnityEngine.LogType.Error, "Example To The Log");
 
             Console.WriteLine("------------------");
         }
