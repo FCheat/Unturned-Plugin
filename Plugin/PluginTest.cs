@@ -50,11 +50,6 @@ namespace Plugin
                             case "sAirdrop":
                                 SDG.Unturned.LevelManager.airdropFrequency = 0;
                                 break;
-                            case "sMessage":
-                                Player.player.channel.send("askMessage", SDG.Unturned.ESteamCall.OWNER,
-                                    SDG.Unturned.ESteamPacket.UPDATE_UNRELIABLE_BUFFER,
-                                    new object[] { (byte)89 }); //89 being the message "Busy"
-                                break;
                         }
                     }
                 };
@@ -77,6 +72,8 @@ namespace Plugin
             SDG.Unturned.SteamChannel.onTriggerSend += HandleTriggerSend;
             
             UnityEngine.Debug.logger.Log(UnityEngine.LogType.Error, "Example To The Log");
+            
+            SDG.Unturned.Commander.register(new CommandMessageA());
 
             Console.WriteLine("------------------");
         }
@@ -118,6 +115,30 @@ namespace Plugin
         public void shutdown()
         {
 
+        }
+    }
+    
+    public class CommandMessageA : SDG.Unturned.Command
+    {
+        public CommandMessageA()
+        {
+            //localization.format("dataname") - Will read from a .dat file if signified
+            localization = new SDG.Unturned.Local();
+            _command = "MessageA";
+            _info = "MessageA";
+            _help = "Sends the 'busy' UI alert to the caller";
+        }
+
+        protected override void execute(Steamworks.CSteamID executorID, string parameter)
+        {
+            foreach (SDG.Unturned.SteamPlayer i in SDG.Unturned.Provider.players)
+                if (i.playerID.steamID == executorID)
+                {
+                    i.player.channel.send("askMessage", SDG.Unturned.ESteamCall.OWNER,
+                        SDG.Unturned.ESteamPacket.UPDATE_UNRELIABLE_BUFFER,
+                        new object[] { (byte)89 }); //89 being the message "Busy"
+                    return;
+                }
         }
     }
 }
